@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sign_in_background"
+    tools:context=".SignInActivity">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButtonBackToLoginPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"
+        android:contentDescription="back"
+        app:backgroundTint="#FDB016"
+        app:srcCompat="@drawable/left_arrow"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/textViewSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/floatingActionButtonBackToLoginPage"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:text="Sign Up"
+        android:textColor="@color/white"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewSignIn"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#30ffffff"
+        android:drawableStart="@drawable/person"
+        android:drawablePadding="20dp"
+        android:ems="10"
+        android:hint="请输入用户名"
+        android:inputType="textPersonName"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextUsername"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:singleLine="true"
+        android:background="#30ffffff"
+        android:drawableStart="@drawable/password"
+        android:drawableEnd="@drawable/eyes_open"
+        android:drawablePadding="20dp"
+        android:ems="10"
+        android:hint="请输入密码"
+        android:inputType="textPassword"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <EditText
+        android:id="@+id/editTextPasswordConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextPassword"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:singleLine="true"
+        android:background="#30ffffff"
+        android:drawableStart="@drawable/password"
+        android:drawablePadding="20dp"
+        android:ems="10"
+        android:hint="再次确认密码"
+        android:inputType="textPassword"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutCheckBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextPasswordConfirm"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/checkBoxUserProtocol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:backgroundTint="#00919191"
+            android:button="@drawable/check_box_style"
+            android:buttonTint="#E8801F"
+            android:focusable="auto"
+            android:text="阅读并同意"
+            android:textSize="14sp"
+            android:textColorHighlight="#FFEC42"
+            android:textColorLink="#FFEC42" />
+
+        <TextView
+            android:id="@+id/textViewUserServiceAgreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|left"
+            android:text="@string/userServiceAgreement"
+            android:textColor="#E8801F"
+            android:textColorHighlight="#FFEC42"
+            android:textColorLink="#E8801F"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="和"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/textViewPrivacyPolicy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/userPrivacyPolicy"
+            android:textColor="#E8801F"
+            android:textColorHighlight="#FFEC42"
+            android:textColorLink="#E8801F"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutCheckBoxAutoSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayoutCheckBox"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="0dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/checkBoxAutoSignIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayoutCheckBox"
+            android:background="@android:color/transparent"
+            android:backgroundTint="#00919191"
+            android:button="@drawable/check_box_style"
+            android:buttonTint="#E8801F"
+            android:focusable="auto"
+            android:text="注册后自动登录"
+            android:textSize="14sp"
+            android:textColorHighlight="#FFEC42"
+            android:textColorLink="#FFEC42" />
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonLogin"
+        android:layout_width="120dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/linearLayoutCheckBoxAutoSignIn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#E8801F"
+        android:text="注 册"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:cornerRadius="35dp" />
+
+    <TextView
+        android:id="@+id/textViewSignInWithOtherWays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayoutSocialIcons"
+        android:layout_centerHorizontal="true"
+        android:text="用以下社交帐号注册" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutSocialIcons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/qq" />
+
+        <ImageView
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/wechat" />
+
+        <ImageView
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/github" />
+
+    </LinearLayout>
+
+</RelativeLayout>
