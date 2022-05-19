@@ -23,9 +23,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.dengemo.TekWulf.CANBusGuardian.room.database.UserDatabase;
+import com.dengemo.TekWulf.CANBusGuardian.room.UserRepository;
 import com.dengemo.TekWulf.CANBusGuardian.room.entity.User;
-import com.dengemo.TekWulf.CANBusGuardian.room.executors.AppExecutors;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -44,11 +43,15 @@ public class SignInActivity extends AppCompatActivity {
     private CheckBox checkBoxAutoSignIn;
     private Boolean eye_state = true;
 
+    UserRepository mRepository;
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+
+        mRepository = new UserRepository(getApplication());
 
         initPara();
         initEvent();
@@ -210,7 +213,7 @@ public class SignInActivity extends AppCompatActivity {
             lengthIsCorrect = true;
         }
 
-        return (!hasSpace || hasDigit || hasLetter || lengthIsCorrect);
+        return (!hasSpace && hasDigit && hasLetter && lengthIsCorrect);
     }
 
     //检查用户名是否符合规范
@@ -245,19 +248,14 @@ public class SignInActivity extends AppCompatActivity {
 
     //将本页面获得的数据写入数据库
     private void loadInDatabase() {
-            new AppExecutors().getDiskIO().execute(new Runnable() {
-                @Override
-                public void run() {
-                    User user = new User();
-                    user.username = textUsername.getText().toString();
-                    user.password = textPassword.getText().toString();
-                    MyApp.userDatabase.userDao().insert(user);
-            }
-        });
+        User user = new User();
+        user.username = textUsername.getText().toString();
+        user.password = textPassword.getText().toString();
+        mRepository.insert(user);
     }
 
     //注册按钮的事件
-    private void signIn() {
+    private void signUp() {
         //获取输入
         String username = textUsername.getText().toString();
         String password = textPassword.getText().toString();
@@ -305,7 +303,7 @@ public class SignInActivity extends AppCompatActivity {
 
     View.OnClickListener signInOnClickListener = view -> {
         if(checkInput()) {
-            signIn();
+            signUp();
         }
     };
 

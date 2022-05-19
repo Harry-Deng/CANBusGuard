@@ -17,14 +17,11 @@ public interface UserDao {
     @Query("SELECT * FROM user")
     LiveData<List<User>> getAllUser();
 
-    @Query("SELECT * FROM user WHERE uid = :uid")
-    User getByUId(int uid);
-
     @Query("SELECT * FROM user WHERE username = :username")
     User getByUsername(String username);
 
-    @Query("SELECT password FROM user WHERE username = :username")
-    String getPasswordByUsername(String username);
+    @Query("SELECT * FROM user WHERE username=:username AND password=:password")
+    User getUser(String username, String password);
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertAll(List<User> users);
