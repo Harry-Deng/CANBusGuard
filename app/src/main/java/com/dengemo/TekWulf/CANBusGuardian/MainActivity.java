@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
                 if (mRepository.queryUser(username.getText().toString(), password.getText().toString()) != null) {
                     //Login successfully
                     Toast.makeText(MainActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this, MainPageActivity.class);
+                    startActivity(intent);
                 } else {
                     //Login failed
                     Toast.makeText(MainActivity.this, "登陆失败", Toast.LENGTH_SHORT).show();

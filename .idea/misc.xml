@@ -6,8 +6,14 @@
         <entry key="..\:/CodeField_Android/CANBusGuardian/app/src/main/res/drawable/check_box_style.xml" value="0.117" />
         <entry key="..\:/CodeField_Android/CANBusGuardian/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/CodeField_Android/CANBusGuardian/app/src/main/res/layout/activity_page_main.xml" value="0.24048913043478262" />
-        <entry key="..\:/CodeField_Android/CANBusGuardian/app/src/main/res/layout/activity_sign_in.xml" value="0.264" />
+        <entry key="..\:/CodeField_Android/CANBusGuardian/app/src/main/res/layout/activity_sign_in.xml" value="0.2" />
         <entry key="..\:/CodeField_Android/CANBusGuardian/app/src/main/res/layout/checkbox_style.xml" value="0.20697463768115942" />
+        <entry key="..\:/CodeField_Android/CANBusGuardian/app/src/main/res/layout/fragment_alarm_information.xml" value="0.27447916666666666" />
+        <entry key="..\:/CodeField_Android/CANBusGuardian/app/src/main/res/layout/fragment_home.xml" value="0.1515625" />
+        <entry key="..\:/CodeField_Android/CANBusGuardian/app/src/main/res/layout/fragment_user.xml" value="0.15364583333333334" />
+        <entry key="..\:/CodeField_Android/CANBusGuardian/app/src/main/res/layout/fragment_voltage_fingerprint.xml" value="0.27447916666666666" />
+        <entry key="..\:/CodeField_Android/CANBusGuardian/app/src/main/res/layout/fragment_warning.xml" value="0.1515625" />
+        <entry key="..\:/CodeField_Android/CANBusGuardian/app/src/main/res/menu/bottom_nav_menu.xml" value="0.27447916666666666" />
       </map>
     </option>
   </component>

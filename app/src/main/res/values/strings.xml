@@ -3,4 +3,6 @@
     <string name="userServiceAgreement"><u>用户服务协议</u></string>
     <string name="userPrivacyPolicy"><u>隐私政策</u></string>
     <string name="forgetPassword"><u>忘记密码?</u></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

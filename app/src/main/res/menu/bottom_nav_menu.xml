@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/item_home_page"
+        android:title="主页"
+        android:icon="@drawable/logo_home_page"/>
+    <item android:id="@+id/item_alarm_information"
+        android:title="告警信息"
+        android:icon="@drawable/logo_alarm_information"/>
+    <item android:id="@+id/item_voltage_fingerprint"
+        android:title="电压指纹"
+        android:icon="@drawable/logo_voltage_fingerprint"/>
+    <item android:id="@+id/item_user"
+        android:title="用户"
+        android:icon="@drawable/logo_user"/>
+</menu>
