@@ -1,23 +1,41 @@
 package com.dengemo.TekWulf.CANBusGuardian;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.LinkedList;
+import java.util.Objects;
 
-public class MainPageActivity extends AppCompatActivity {
+
+public class MainPageActivity extends FragmentActivity /*implements AdapterView.OnItemClickListener*/ {
+
+    UserFragment userFragment;
 
     BottomNavigationView bottomNavigationView;
     ViewPager viewPager;
     MenuItem menuItem;
 
-    @SuppressLint("ClickableViewAccessibility")
+//    private static final LinkedList<StandardItem> itemList;
+//    static {
+//        itemList = new LinkedList<>();
+//        itemList.addLast(new StandardItem("设置"));
+//        itemList.addLast(new StandardItem("关于"));
+//    }
+
+    @SuppressLint({"ClickableViewAccessibility", "NonConstantResourceId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,31 +46,27 @@ public class MainPageActivity extends AppCompatActivity {
 
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
 
-//        BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.warning);
-//        badgeDrawable.setVisible(true);
-//        badgeDrawable.setNumber(8);
+        BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.item_home_page);
+        badgeDrawable.setVisible(true);
+        badgeDrawable.setNumber(1);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(
-                new BottomNavigationView.OnNavigationItemSelectedListener() {
-                    @SuppressLint("NonConstantResourceId")
-                    @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        switch (item.getItemId()) {
-                            case R.id.item_home_page:
-                                viewPager.setCurrentItem(0);
-                                break;
-                            case R.id.item_alarm_information:
-                                viewPager.setCurrentItem(1);
-                                break;
-                            case R.id.item_voltage_fingerprint:
-                                viewPager.setCurrentItem(2);
-                                break;
-                            case R.id.item_user:
-                                viewPager.setCurrentItem(3);
-                                break;
-                        }
-                        return false;
+                item -> {
+                    switch (item.getItemId()) {
+                        case R.id.item_home_page:
+                            viewPager.setCurrentItem(0);
+                            break;
+                        case R.id.item_alarm_information:
+                            viewPager.setCurrentItem(1);
+                            break;
+                        case R.id.item_voltage_fingerprint:
+                            viewPager.setCurrentItem(2);
+                            break;
+                        case R.id.item_user:
+                            viewPager.setCurrentItem(3);
+                            break;
                     }
+                    return false;
                 });
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -77,8 +91,11 @@ public class MainPageActivity extends AppCompatActivity {
             }
         });
         setupViewPager(viewPager);
+
+        //initComponent();
     }
 
+        //设置MainPageActivity中ViewPager内的Fragment
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
@@ -89,4 +106,34 @@ public class MainPageActivity extends AppCompatActivity {
 
         viewPager.setAdapter(adapter);
     }
+
+//        初始化ListView内所有的Item组件
+//    private void initComponent() {
+//        StandardItemAdaptor adapter = new StandardItemAdaptor(itemList, getApplicationContext());
+//
+//        userFragment = new UserFragment();
+//
+//        ListView listView = userFragment.requireView().findViewById(R.id.list_view);
+//
+//        listView.setAdapter(adapter);
+//
+//        listView.setOnItemClickListener(this);
+//    }
+
+
+//    @Override
+//    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//        Intent intent = new Intent();
+//        StandardItem item = (StandardItem) parent.getItemAtPosition(position);
+//        if ("设置".equals(item.getName())) {
+//            intent.setClass(MainPageActivity.this, SettingActivity.class);
+//        }else if("关于".equals(item.getName())) {
+//            intent.setClass(MainPageActivity.this, AboutUsActivity.class);
+//        }else {
+//            Toast.makeText(getApplicationContext(), "功能暂未开放", Toast.LENGTH_LONG).show();
+//            return;
+//        }
+//        startActivity(intent);
+//    }
 }
+

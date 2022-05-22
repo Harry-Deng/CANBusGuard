@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login_background"
@@ -18,7 +19,7 @@
         android:layout_marginBottom="10dp"
         android:text="新用户"
         android:textColor="@color/white"
-        app:backgroundTint="#AF30E7"
+        app:backgroundTint="#9996D8"
         app:cornerRadius="25dp" />
 
     <TextView
@@ -84,7 +85,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="#E232EB"
+        android:backgroundTint="#E198E4"
         android:text="登 录"
         android:textAlignment="center"
         android:textSize="20sp"
@@ -113,10 +114,10 @@
         android:text="用以下社交帐号登录" />
 
     <LinearLayout
+        android:id="@+id/linearLayoutSocialIcons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:id="@+id/linearLayoutSocialIcons"
         android:gravity="center">
 
         <ImageView
